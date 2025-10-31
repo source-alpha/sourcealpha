@@ -1,21 +1,177 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import HumanInLoop from '../components/HumanInLoop.astro';
-import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
+
+const features = [
+  {
+    icon: "search" as const,
+    title: "Agentic Lead Sourcing",
+    description: "Autonomous agents continuously identify and qualify investment opportunities across multiple data sources, delivering high-quality leads to your pipeline.",
+  },
+  {
+    icon: "gauge" as const,
+    title: "Custom Rules Engine",
+    description: "Apply your firm's proprietary investment criteria and scoring models. Configure complex logic to evaluate opportunities against your specific thesis.",
+  },
+  {
+    icon: "bell" as const,
+    title: "Intelligent Alerts",
+    description: "Real-time notifications when significant events occur with prospective companies—funding rounds, leadership changes, market shifts, and more.",
+  },
+  {
+    icon: "users" as const,
+    title: "Relationship Automation",
+    description: "Streamline outreach and follow-up workflows. Maintain consistent engagement with prospects while preserving the personal touch.",
+  },
+];
+
+const iconPaths: Record<string, string> = {
+  search: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
+  gauge: "M12 6v6m0 0v6m0-6h6m-6 0H6",
+  bell: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9",
+  users: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+};
+
+const principles = [
+  "AI surfaces opportunities and insights—you make the final investment decisions",
+  "Full transparency into scoring logic and data sources",
+  "Configurable approval workflows for all automated actions",
+  "Audit trails for compliance and internal review",
+];
 ---
 
 <Layout title="sourcealpha.ai - Agentic Sourcing for Private Capital">
   <div class="min-h-screen">
     <Header />
     <main>
-      <Hero />
-      <Features />
-      <HumanInLoop />
-      <CTA />
+      <!-- Hero Section -->
+      <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden" style="background: linear-gradient(to bottom right, var(--brand-dark), var(--brand-dark-secondary), var(--brand-dark-tertiary));">
+        <div class="absolute inset-0"></div>
+        <div
+          class="absolute inset-0 opacity-40"
+          style="background-image: radial-gradient(circle at 20% 50%, rgba(0, 255, 128, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 200, 100, 0.15) 0%, transparent 50%);"
+        ></div>
+
+        <div
+          class="absolute inset-0 opacity-[0.15]"
+          style="background-image: linear-gradient(rgba(0, 204, 0, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 204, 0, 0.5) 1px, transparent 1px); background-size: 40px 40px;"
+        ></div>
+
+        <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto text-center">
+            <div class="badge-brand mb-8">
+              <div class="pulse-dot"></div>
+              <span>AI-Powered Deal Sourcing</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 text-balance">
+              The future of sourcing is agentic
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Intelligent automation for private capital firms. Source, score, and monitor investment opportunities with precision.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button class="btn-primary">
+                Schedule Demo
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </button>
+              <button class="btn-secondary">
+                View Platform
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="py-20 sm:py-28 bg-background">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Complete sourcing infrastructure</h2>
+            <p class="text-lg text-muted-foreground leading-relaxed">
+              Purpose-built modules for every stage of your deal sourcing workflow
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {features.map((feature) => (
+              <div class="rounded-lg border border-border/50 bg-card text-card-foreground shadow-sm p-6 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4">
+                  <div class="feature-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon">
+                      <path d={iconPaths[feature.icon]}></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
+                    <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Human in Loop Section -->
+      <section id="approach" class="py-20 sm:py-28 bg-muted/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Human-in-the-loop by design</h2>
+              <p class="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                Augment your team's capabilities without replacing judgment. Our platform enhances decision-making while keeping you in control.
+              </p>
+            </div>
+
+            <div class="rounded-lg border border-border/50 bg-card text-card-foreground shadow-sm p-8">
+              <div class="space-y-4">
+                {principles.map((principle) => (
+                  <div class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <p class="text-foreground leading-relaxed">{principle}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section id="contact" class="py-20 sm:py-28 bg-background">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="rounded-lg border border-border/50 bg-gradient-to-br from-card to-muted/30 text-card-foreground shadow-sm max-w-4xl mx-auto p-8 sm:p-12">
+            <div class="text-center">
+              <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Ready to enhance your sourcing?</h2>
+              <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                See how leading private capital firms are using sourcealpha.ai to identify better opportunities faster.
+              </p>
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="btn-primary">
+                  Schedule Demo
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+                <button class="btn-secondary-light">
+                  Contact Sales
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <Footer />
   </div>

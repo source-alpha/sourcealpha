@@ -4,6 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
+        brand: {
+          green: 'var(--brand-green)',
+          'green-hover': 'var(--brand-green-hover)',
+          'green-dark': 'var(--brand-green-dark)',
+          dark: 'var(--brand-dark)',
+          'dark-secondary': 'var(--brand-dark-secondary)',
+          'dark-tertiary': 'var(--brand-dark-tertiary)',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

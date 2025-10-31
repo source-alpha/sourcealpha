@@ -4,6 +4,15 @@
 
 @layer base {
   :root {
+    /* Brand Colors */
+    --brand-green: #00cc00;
+    --brand-green-hover: #00b300;
+    --brand-green-dark: #009900;
+    --brand-dark: #002814;
+    --brand-dark-secondary: #001409;
+    --brand-dark-tertiary: #000a05;
+
+    /* Design System Colors (HSL for Tailwind) */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -32,5 +41,107 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Button Base Styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-200;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:opacity-50 disabled:pointer-events-none;
+    @apply h-11 px-8;
+  }
+
+  /* Primary Button - Brand Green */
+  .btn-primary {
+    @apply btn;
+    background-color: var(--brand-green);
+    color: white;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--brand-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 204, 0, 0.3);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    background-color: var(--brand-green-dark);
+    transform: translateY(0);
+  }
+
+  .btn-primary:focus-visible {
+    @apply ring-offset-2;
+    ring-color: var(--brand-green);
+  }
+
+  /* Secondary Button - Outline */
+  .btn-secondary {
+    @apply btn border bg-transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .btn-secondary:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:active:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Secondary Button - Light Background */
+  .btn-secondary-light {
+    @apply btn border bg-background;
+  }
+
+  .btn-secondary-light:hover:not(:disabled) {
+    background-color: var(--brand-green);
+    color: white;
+  }
+
+  .btn-secondary-light:active:not(:disabled) {
+    background-color: var(--brand-green-dark);
+  }
+
+  /* Button Icon Animation */
+  .btn-icon {
+    @apply ml-2 h-4 w-4 transition-transform duration-200;
+  }
+
+  .btn:hover .btn-icon {
+    transform: translateX(4px);
+  }
+
+  /* Badge Styles */
+  .badge-brand {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-mono;
+    border-color: rgba(0, 204, 0, 0.3);
+    background-color: rgba(0, 204, 0, 0.05);
+    color: var(--brand-green);
+  }
+
+  .badge-brand .pulse-dot {
+    @apply h-1.5 w-1.5 rounded-full animate-pulse;
+    background-color: var(--brand-green);
+  }
+
+  /* Feature Icon Styles */
+  .feature-icon-wrapper {
+    @apply flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center;
+    background-color: rgba(0, 204, 0, 0.1);
+  }
+
+  .feature-icon {
+    @apply h-6 w-6;
+    color: var(--brand-green);
+  }
+
+  /* Checkmark Icon for Principles */
+  .check-icon {
+    @apply h-5 w-5 flex-shrink-0 mt-0.5;
+    color: var(--brand-green);
   }
 }

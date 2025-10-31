@@ -51,7 +51,7 @@ npm run build
 npm start
 ```
 
-Visit http://localhost:4321 (dev) or http://localhost:8080 (production) to view the site.
+Visit http://localhost:8080 to view the site locally.
 
 ## Deployment
 
@@ -92,12 +92,14 @@ gcloud run services update sourcealpha-site \
 ## Development
 
 ### Tech Stack
+
 - **Frontend**: Astro 4.16 with server-side rendering
 - **Styling**: Tailwind CSS with custom design system
 - **Icons**: Inline SVG for optimal performance
 - **Components**: Modular Astro components (Header, Hero, Features, CTA, Footer)
 
 ### Key Features
+
 - Responsive design with mobile-first approach
 - Server-side rendered for optimal SEO
 - Health check endpoint at `/health` for Cloud Run
