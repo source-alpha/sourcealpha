@@ -1,0 +1,61 @@
+---
+// Features component
+const features = [
+  {
+    icon: "search" as const,
+    title: "Agentic Lead Sourcing",
+    description: "Autonomous agents continuously identify and qualify investment opportunities across multiple data sources, delivering high-quality leads to your pipeline.",
+  },
+  {
+    icon: "gauge" as const,
+    title: "Custom Rules Engine",
+    description: "Apply your firm's proprietary investment criteria and scoring models. Configure complex logic to evaluate opportunities against your specific thesis.",
+  },
+  {
+    icon: "bell" as const,
+    title: "Intelligent Alerts",
+    description: "Real-time notifications when significant events occur with prospective companies—funding rounds, leadership changes, market shifts, and more.",
+  },
+  {
+    icon: "users" as const,
+    title: "Relationship Automation",
+    description: "Streamline outreach and follow-up workflows. Maintain consistent engagement with prospects while preserving the personal touch.",
+  },
+];
+
+const iconPaths: Record<string, string> = {
+  search: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
+  gauge: "M12 6v6m0 0v6m0-6h6m-6 0H6",
+  bell: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9",
+  users: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+};
+---
+
+<section id="features" class="py-20 sm:py-28 bg-background">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Complete sourcing infrastructure</h2>
+      <p class="text-lg text-muted-foreground leading-relaxed">
+        Purpose-built modules for every stage of your deal sourcing workflow
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {features.map((feature) => (
+        <div class="rounded-lg border border-border/50 bg-card text-card-foreground shadow-sm p-6 hover:shadow-lg transition-shadow">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent">
+                <path d={iconPaths[feature.icon]}></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">{feature.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

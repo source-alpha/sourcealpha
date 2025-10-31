@@ -1,0 +1,15 @@
+---
+// Footer component
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-border/40 bg-muted/20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+      <img src="/images/sourcealpha_logo_nav.png" alt="sourcealpha.ai" class="h-6" />
+      <p class="text-sm text-muted-foreground">
+        © {currentYear} sourcealpha.ai. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

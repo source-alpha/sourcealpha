@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+.astro/
+.next/
+out/
+build/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+.cache/

@@ -1,0 +1,36 @@
+---
+// Human in Loop component
+const principles = [
+  "AI surfaces opportunities and insights—you make the final investment decisions",
+  "Full transparency into scoring logic and data sources",
+  "Configurable approval workflows for all automated actions",
+  "Audit trails for compliance and internal review",
+];
+---
+
+<section id="approach" class="py-20 sm:py-28 bg-muted/30">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Human-in-the-loop by design</h2>
+        <p class="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          Augment your team's capabilities without replacing judgment. Our platform enhances decision-making while keeping you in control.
+        </p>
+      </div>
+
+      <div class="rounded-lg border border-border/50 bg-card text-card-foreground shadow-sm p-8">
+        <div class="space-y-4">
+          {principles.map((principle) => (
+            <div class="flex items-start gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-accent flex-shrink-0 mt-0.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <p class="text-foreground leading-relaxed">{principle}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
